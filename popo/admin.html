@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0">
+	<title>Admin — TungTungSah</title>
+	<style>
+		body{font-family:system-ui,Segoe UI,Roboto,Arial;margin:20px;background:#f7f7f8;color:#111}
+		.container{max-width:900px;margin:0 auto;background:#fff;padding:20px;border-radius:6px;box-shadow:0 2px 8px rgba(0,0,0,.06)}
+		h1{margin:0 0 10px}
+		form .row{display:flex;gap:10px;margin-bottom:10px}
+		form label{width:220px;font-weight:600}
+		input[type="text"],textarea{flex:1;padding:8px;border:1px solid #ddd;border-radius:4px;font-size:14px}
+		textarea{min-height:80px}
+		.controls{display:flex;gap:8px;margin-top:12px}
+		button{padding:8px 12px;border:none;border-radius:4px;background:#2b6cb0;color:#fff;cursor:pointer}
+		button.warn{background:#e53e3e}
+		.small{font-size:13px;color:#666}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<h1>Админка сайта</h1>
+		<p class="small">Изменения сохраняются в localStorage и применяются на главной странице. <a href="index.html">Открыть сайт</a></p>
+		<form id="adminForm"></form>
+		<div class="controls">
+			<button id="saveBtn" type="button">Сохранить</button>
+			<button id="resetBtn" type="button" class="warn">Сбросить к значениям по умолчанию</button>
+			<button id="openBtn" type="button">Открыть сайт</button>
+		</div>
+		<p id="msg" class="small"></p>
+	</div>
+
+	<script src="js/js.js"></script>
+	<script>
+		// Зависит от window.DEFAULT_SITE_CONTENT и функций из js.js
+		(function(){
+			const form = document.getElementById('adminForm');
+			const data = window.getSiteContent();
+			const keys = Object.keys(window.DEFAULT_SITE_CONTENT);
+
+			// удаляет HTML-теги
+			const stripTags = s => (s || '').replace(/<[^>]*>/g, '');
+
+			// вспомогательная: читабельные лейблы
+			const human = k => k.replace(/_/g,' ').replace(/\b\w/g, c=>c.toUpperCase());
+
+			// Генерация полей (входные значения очищаются от тегов)
+			keys.forEach(k => {
+				const rawValue = data[k] || '';
+				const value = stripTags(rawValue);
+				const row = document.createElement('div');
+				row.className = 'row';
+				const label = document.createElement('label');
+				label.textContent = human(k);
+				const isLong = value.length > 60 || /\n/.test(value);
+				let control;
+				if (isLong) {
+					control = document.createElement('textarea');
+					control.value = value;
+				} else {
+					control = document.createElement('input');
+					control.type = 'text';
+					control.value = value;
+				}
+				control.name = k;
+				// удаляем теги при вводе/вставке
+				control.addEventListener('input', () => {
+					const v = control.value;
+					if (v.indexOf('<') !== -1 || v.indexOf('>') !== -1) {
+						const cleaned = stripTags(v);
+						if (cleaned !== v) control.value = cleaned;
+					}
+				});
+				row.appendChild(label);
+				row.appendChild(control);
+				form.appendChild(row);
+			});
+
+			document.getElementById('saveBtn').addEventListener('click', () => {
+				const formData = new FormData(form);
+				const newContent = Object.assign({}, window.DEFAULT_SITE_CONTENT);
+				let removedAny = false;
+				for (const [k] of Object.entries(newContent)) {
+					const raw = formData.get(k) || '';
+					const clean = stripTags(raw);
+					if (clean !== raw) removedAny = true;
+					newContent[k] = clean;
+				}
+				window.saveSiteContent(newContent);
+				document.getElementById('msg').textContent = removedAny ? 'Сохранено. Введённые HTML‑теги были удалены. Обновите главную страницу.' : 'Сохранено. Обновите главную страницу, чтобы увидеть изменения.';
+			});
+
+			document.getElementById('resetBtn').addEventListener('click', () => {
+				if (!confirm('Сбросить все тексты к значениям по умолчанию?')) return;
+				window.resetSiteContent();
+				location.reload();
+			});
+
+			document.getElementById('openBtn').addEventListener('click', () => {
+				window.open('index.html','_blank');
+			});
+		})();
+	</script>
+</body>
+</html>

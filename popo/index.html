@@ -14,14 +14,16 @@
 
     <header class="header">
         <div class="container header-container">
-            <a href="#" class="logo">TUNGTUNG<span class="highlight">SAH</span></a>
+            <!-- изменено: добавлен data-edit-key -->
+            <a href="#" class="logo" data-edit-key="logo"><span class="highlight"></span></a>
             <nav class="nav">
                 <ul class="nav-list">
-                    <li><a href="#about" class="nav-link">О нас</a></li>
-                    <li><a href="#services" class="nav-link">Услуги</a></li>
-                    <li><a href="#trainers" class="nav-link">Команда</a></li>
-                    <li><a href="#benefits" class="nav-link">Преимущества</a></li>
-                    <li><a href="#contacts" class="nav-link">Контакты</a></li>
+                    <!-- изменено: добавлены data-edit-key -->
+                    <li><a href="#about" class="nav-link" data-edit-key="nav_about">О нас</a></li>
+                    <li><a href="#services" class="nav-link" data-edit-key="nav_services">Услуги</a></li>
+                    <li><a href="#trainers" class="nav-link" data-edit-key="nav_trainers">Команда</a></li>
+                    <li><a href="#benefits" class="nav-link" data-edit-key="nav_benefits">Преимущества</a></li>
+                    <li><a href="#contacts" class="nav-link" data-edit-key="nav_contacts">Контакты</a></li>
                 </ul>
             </nav>
             <div class="burger">
@@ -35,9 +37,10 @@
     <!-- Hero Section (Визуальный блок) -->
     <section class="hero">
         <div class="container hero-content">
-            <h1>Создай свою <br><span class="highlight">лучшую версию</span></h1>
-            <p>Премиальный фитнес-клуб в центре города. Твое тело — твое дело.</p>
-            <a href="#contacts" class="btn">Записаться</a>
+            <!-- изменено: добавлен data-edit-key; может содержать HTML -->
+            <h1 data-edit-key="hero_h1">Создай свою <br><span class="highlight">лучшую версию</span></h1>
+            <p data-edit-key="hero_p">Премиальный фитнес-клуб в центре города. Твое тело — твое дело.</p>
+            <a href="#contacts" class="btn" data-edit-key="hero_btn">Записаться</a>
         </div>
     </section>
 
@@ -45,12 +48,12 @@
     <section id="about" class="section">
         <div class="container">
             <div class="section-header">
-                <h2>О компании</h2>
-                <p class="subtitle">Сила, воля, результат</p>
+                <h2 data-edit-key="about_h2">О компании</h2>
+                <p class="subtitle" data-edit-key="about_subtitle">Сила, воля, результат</p>
             </div>
             <div class="about-content">
-                <p><strong>TungTungSah</strong> — это больше, чем просто тренажерный зал. Это сообщество людей, объединенных целью стать сильнее и здоровее. Мы предоставляем оборудование мирового класса, профессиональную поддержку и атмосферу, которая мотивирует на победы.</p>
-                <p>Наша миссия — сделать фитнес доступным, понятным и эффективным для каждого, независимо от уровня подготовки.</p>
+                <p data-edit-key="about_p1"><strong>TungTungSah</strong> — это больше, чем просто тренажерный зал. Это сообщество людей, объединенных целью стать сильнее и здоровее. Мы предоставляем оборудование мирового класса, профессиональную поддержку и атмосферу, которая мотивирует на победы.</p>
+                <p data-edit-key="about_p2">Наша миссия — сделать фитнес доступным, понятным и эффективным для каждого, независимо от уровня подготовки.</p>
             </div>
         </div>
     </section>
@@ -59,26 +62,23 @@
     <section id="services" class="section bg-dark">
         <div class="container">
             <div class="section-header">
-                <h2>Наши услуги</h2>
+                <h2 data-edit-key="services_h2">Наши услуги</h2>
             </div>
             <div class="grid-container">
-                <!-- Карточка 1 -->
                 <div class="card service-card">
                     <div class="icon-box"><i class="fas fa-dumbbell"></i></div>
-                    <h3>Тренажерный зал</h3>
-                    <p>Современное оборудование Technogym и Hammer Strength. Зоны свободных весов и кардио.</p>
+                    <h3 data-edit-key="service1_title">Тренажерный зал</h3>
+                    <p data-edit-key="service1_desc">Современное оборудование Technogym и Hammer Strength. Зоны свободных весов и кардио.</p>
                 </div>
-                <!-- Карточка 2 -->
                 <div class="card service-card">
                     <div class="icon-box"><i class="fas fa-running"></i></div>
-                    <h3>Кардио-зона</h3>
-                    <p>Беговые дорожки, эллипсы и велотренажеры с мультимедийными системами.</p>
+                    <h3 data-edit-key="service2_title">Кардио-зона</h3>
+                    <p data-edit-key="service2_desc">Беговые дорожки, эллипсы и велотренажеры с мультимедийными системами.</p>
                 </div>
-                <!-- Карточка 3 -->
                 <div class="card service-card">
                     <div class="icon-box"><i class="fas fa-users"></i></div>
-                    <h3>Групповые программы</h3>
-                    <p>Йога, пилатес, кроссфит, зумба. Более 20 направлений для групповых тренировок.</p>
+                    <h3 data-edit-key="service3_title">Групповые программы</h3>
+                    <p data-edit-key="service3_desc">Йога, пилатес, кроссфит, зумба. Более 20 направлений для групповых тренировок.</p>
                 </div>
             </div>
         </div>
@@ -88,31 +88,27 @@
     <section id="trainers" class="section">
         <div class="container">
             <div class="section-header">
-                <h2>Наши Тренеры</h2>
+                <h2 data-edit-key="trainers_h2">Наши Тренеры</h2>
             </div>
             <div class="grid-container">
-                
-                <!-- Карточка Тренера 1 -->
                 <div class="card trainer-card">
                     <div class="trainer-avatar">
                         <img src="asswts/83836-1000x830.jpg" alt="Алексей Смирнов" loading="lazy">
                     </div>
                     <div class="trainer-info">
-                        <h3>Алексей Смирнов</h3>
-                        <span class="specialization">Старший тренер / Бодибилдинг</span>
-                        <p>Опыт работы более 10 лет. Мастер спорта по пауэрлифтингу. Специализируется на наборе мышечной массы и силовой подготовке.</p>
+                        <h3 data-edit-key="trainer1_name">Алексей Смирнов</h3>
+                        <span class="specialization" data-edit-key="trainer1_specialization">Старший тренер / Бодибилдинг</span>
+                        <p data-edit-key="trainer1_bio">Опыт работы более 10 лет. Мастер спорта по пауэрлифтингу. Специализируется на наборе мышечной массы и силовой подготовке.</p>
                     </div>
                 </div>
-
-                <!-- Карточка Тренера 2 -->
                 <div class="card trainer-card">
                     <div class="trainer-avatar">
                         <img src="asswts/images.jpg" alt="Мария Иванова" loading="lazy">
                     </div>
                     <div class="trainer-info">
-                        <h3>Мария Иванова</h3>
-                        <span class="specialization">Функциональный тренинг / Йога</span>
-                        <p>Сертифицированный инструктор по хатха-йоге. Поможет развить гибкость, восстановиться после травм и найти баланс.</p>
+                        <h3 data-edit-key="trainer2_name">Мария Иванова</h3>
+                        <span class="specialization" data-edit-key="trainer2_specialization">Функциональный тренинг / Йога</span>
+                        <p data-edit-key="trainer2_bio">Сертифицированный инструктор по хатха-йоге. Поможет развить гибкость, восстановиться после травм и найти баланс.</p>
                     </div>
                 </div>
             </div>
@@ -123,28 +119,28 @@
     <section id="benefits" class="section bg-dark">
         <div class="container">
             <div class="section-header">
-                <h2>Почему выбирают нас</h2>
+                <h2 data-edit-key="benefits_h2">Почему выбирают нас</h2>
             </div>
             <div class="benefits-list">
                 <div class="benefit-item">
                     <div class="check-icon"><i class="fas fa-check"></i></div>
                     <div>
-                        <h3>Работаем 24/7</h3>
-                        <p>Тренируйтесь когда удобно вам, без ограничений по времени.</p>
+                        <h3 data-edit-key="benefit1_title">Работаем 24/7</h3>
+                        <p data-edit-key="benefit1_text">Тренируйтесь когда удобно вам, без ограничений по времени.</p>
                     </div>
                 </div>
                 <div class="benefit-item">
                     <div class="check-icon"><i class="fas fa-check"></i></div>
                     <div>
-                        <h3>Первая тренировка бесплатно</h3>
-                        <p>Попробуйте зал и атмосферу перед покупкой абонемента.</p>
+                        <h3 data-edit-key="benefit2_title">Первая тренировка бесплатно</h3>
+                        <p data-edit-key="benefit2_text">Попробуйте зал и атмосферу перед покупкой абонемента.</p>
                     </div>
                 </div>
                 <div class="benefit-item">
                     <div class="check-icon"><i class="fas fa-check"></i></div>
                     <div>
-                        <h3>SPA и Сауна</h3>
-                        <p>Просторная финская сауна и зона отдыха включены в клубную карту.</p>
+                        <h3 data-edit-key="benefit3_title">SPA и Сауна</h3>
+                        <p data-edit-key="benefit3_text">Просторная финская сауна и зона отдыха включены в клубную карту.</p>
                     </div>
                 </div>
             </div>
@@ -155,30 +151,31 @@
     <section id="contacts" class="section">
         <div class="container">
             <div class="section-header">
-                <h2>Контакты</h2>
+                <h2 data-edit-key="contacts_h2">Контакты</h2>
             </div>
             <div class="contacts-wrapper">
                 <div class="contacts-info">
                     <div class="info-item">
                         <i class="fas fa-phone-alt"></i>
-                        <p>+7 (999) 000-00-00</p>
+                        <p data-edit-key="contact_phone">+7 (999) 000-00-00</p>
                     </div>
                     <div class="info-item">
                         <i class="fas fa-envelope"></i>
-                        <p>info@ironforge.fit</p>
+                        <p data-edit-key="contact_email">info@ironforge.fit</p>
                     </div>
                     <div class="info-item">
                         <i class="fas fa-map-marker-alt"></i>
-                        <p>г. Москва, ул. Спортивная, д. 10</p>
+                        <p data-edit-key="contact_address">г. Москва, ул. Спортивная, д. 10</p>
                     </div>
                 </div>
                 
                 <form class="contact-form" id="contactForm">
-                    <h3>Заказать звонок</h3>
-                    <input type="text" placeholder="Ваше имя" required>
-                    <input type="tel" placeholder="Ваш телефон" required>
-                    <input type="email" placeholder="Ваш Email" required>
-                    <button type="submit" class="btn btn-full">Отправить</button>
+                    <h3 data-edit-key="contact_form_h3">Заказать звонок</h3>
+                    <!-- изменено: placeholder управляется через data-edit-key -->
+                    <input type="text" placeholder="Ваше имя" data-edit-key="contact_form_name_placeholder" required>
+                    <input type="tel" placeholder="Ваш телефон" data-edit-key="contact_form_phone_placeholder" required>
+                    <input type="email" placeholder="Ваш Email" data-edit-key="contact_form_email_placeholder" required>
+                    <button type="submit" class="btn btn-full" data-edit-key="contact_form_button">Отправить</button>
                 </form>
             </div>
         </div>
@@ -187,7 +184,9 @@
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
-            <p>&copy; 2026 TungTungSah Fitness. Все права защищены.</p>
+            <p data-edit-key="footer_text">&copy; 2026 TungTungSah Fitness. Все права защищены.</p>
+            <!-- добавлена ссылка на админку -->
+            <p><a href="admin.html" style="color:inherit;opacity:0.8;font-size:0.9em">Открыть админку</a></p>
         </div>
     </footer>
 
